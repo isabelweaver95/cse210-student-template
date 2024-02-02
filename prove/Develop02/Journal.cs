@@ -28,7 +28,7 @@ public class Journal{
         using StreamWriter writer = new StreamWriter(filePath, true);
         foreach (Entry entry in _entries){
             writer.Write(entry._date.ToString("MM/dd/yyyy "));
-            writer.WriteLine(entry.prompt);
+            writer.Write(entry.prompt);
             writer.WriteLine(entry._response);
         }
     }
