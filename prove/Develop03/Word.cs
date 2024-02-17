@@ -20,14 +20,26 @@ public class Word
         _hidden = true;
     }
 
-    public string GetRenderedWord(){
+    public void clearWord(){
+        _hidden = false;
+    }
+
+    public void GetRenderedWord(){
         char[] charArray = _word.ToCharArray();
+
         if(_hidden){
             foreach(int i in charArray){
-                charArray[i] = '_';
+                //Console.Write("_");
+                //Console.Write(charArray[i]);
+                if(i != ',' || i != '.' || i != ';' || i != ':'){
+                    Console.Write("_");
+                }else{ 
+                    Console.Write(charArray[i].ToString());
+                }
             }
-            return charArray.ToString();
-        }else  
-            return _word;
+            Console.Write(" ");
+        }else{
+            Console.Write(_word + " ");
+        }
     }
 }
