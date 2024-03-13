@@ -4,11 +4,6 @@ class Program
 {
     static void Main(string[] args)
     {
-
-        
-        
-
-        
         bool quiting = true;
         string choice = "";
         int input = 0;

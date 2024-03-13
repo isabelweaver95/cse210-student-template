@@ -2,10 +2,8 @@ public class ChecklistGoal : Goal
 {
     private int _amount_of_times;
     private int _amount_done;
-    public ChecklistGoal(string name, string description, int points) : base(name, description, points)
-    {
-        
-    }
+
+
 
     public void SetAmountOfTimes(int amount){
         _amount_of_times = amount;

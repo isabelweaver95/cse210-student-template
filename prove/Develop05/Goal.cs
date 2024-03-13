@@ -3,7 +3,7 @@ public class Goal
     private string _name;
     private string _description;
     private int _points;
-    private bool _completed;
+    private bool _completed = false;
 
     public string GetName(){
         return _name;
@@ -19,12 +19,6 @@ public class Goal
 
     public bool GetComleted(){
         return _completed;
-    }
-    public Goal(string name, string description, int points){
-        _name = name;
-        _description = description;
-        _points = points;
-        _completed = false;
     }
 
     public void SetName(string name){
@@ -48,5 +42,10 @@ public class Goal
 
     public virtual void RecordEvent(){
         _completed = true;
+    }
+
+    public void DisplayGoal(){
+        Console.WriteLine($"[ ] {_name}: {_description} ({_points} points)");
+    
     }
 }

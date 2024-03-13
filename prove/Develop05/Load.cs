@@ -1,18 +1,19 @@
 public class Load{
     string filePath;
+    string fileName;
 
-    public void SetFilePath(){
+    public void SetFilePath(List<Goal> goals){
         Console.WriteLine("What is the name of the file?");
-                string fileName = Console.ReadLine();
-                string filePath = @"C:\Users\izzyw\OneDrive\Documents\code\Class class\Templete\cse210-student-template\prove\Develop02\" + fileName + ".txt";
+                fileName = Console.ReadLine();
+                filePath = @"C:\Users\izzyw\OneDrive\Documents\code\Class class\Templete\cse210-student-template\prove\Develop02\" + fileName + ".txt";
                 if(File.Exists(filePath)){
-                    Loading(filePath);
+                    Loading(goals);
                 }else{
                     Console.WriteLine("File does not exist");
                 }
     }
 
-    private void Loading(string filePath){
+    private void Loading(List<Goal> goals){
         using StreamReader reader = new StreamReader(filePath);
         string line;
         while((line = reader.ReadLine()) != null){
