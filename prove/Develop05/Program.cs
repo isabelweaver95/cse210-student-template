@@ -23,11 +23,14 @@ class Program
 
             switch(input){
                 case 1:{
+                    goals = AddGoal(goals);
                     break;
                 }
                 case 2:{
+                    int i = 1;
                     foreach(Goal goal in goals){
-                        goal.DisplayGoal();
+                        goal.DisplayGoal(i);
+                        i++;
                     }
                     break;
                 }
@@ -38,11 +41,14 @@ class Program
                 }
                 case 4:{
                     Load load = new Load();
-                    load.SetFilePath(goals);
+                    goals = load.SetFilePath(goals);
                     break;
                 }
                 case 5:{
-
+                    Console.WriteLine("Which goal did you accomplish?");
+                    input = int.Parse(Console.ReadLine());
+                    totalPoints += goals[input-1].RecordEvent();
+                    Console.WriteLine($"You now have {totalPoints} points");
                     break;
                 }
                 case 6:{
@@ -65,26 +71,28 @@ class Program
         Console.WriteLine("  4. Back");
         Console.Write("Which type of goal would you like to create?");
         int input = int.Parse(Console.ReadLine());
+
         switch(input){
             case 1:{
-                SimpleGoal simple = new SimpleGoal();
-                goals.Add(simple);
+                Goal simple = new Goal("Simple Goal");
+                goals.Add(simple.SetGoal());
                 return goals;
             }
             case 2:{
                 EternalGoal eternal = new EternalGoal();
-                goals.Add(eternal);
+                goals.Add(eternal.SetGoal());
                 return goals;
             }
             case 3:{
                 ChecklistGoal checklist = new ChecklistGoal();
-                goals.Add(checklist);
+                goals.Add(checklist.SetGoal());
                 return goals;
             }
             case 4:{
                 return goals;
             }
             default:{
+                Console.WriteLine("Choice not valid. Going to home screen");
                 return goals;
             }
         }

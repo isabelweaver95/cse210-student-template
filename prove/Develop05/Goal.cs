@@ -4,6 +4,14 @@ public class Goal
     private string _description;
     private int _points;
     private bool _completed = false;
+    private string _type;
+
+    public Goal(string type){
+        _type = type;
+    }
+    public string GetType(){
+        return _type;
+    }
 
     public string GetName(){
         return _name;
@@ -37,15 +45,30 @@ public class Goal
         _completed = completed;
     }
     public virtual bool IsCompleted(){
-        return true;
+        return _completed;
     }
 
-    public virtual void RecordEvent(){
+    public virtual int RecordEvent(){
         _completed = true;
+        return _points;
     }
 
-    public void DisplayGoal(){
-        Console.WriteLine($"[ ] {_name}: {_description} ({_points} points)");
-    
+    public virtual void DisplayGoal(int index){
+        if(IsCompleted() == true){
+            Console.WriteLine($"{index}. [X] {_name} ({_description})");
+        }else{
+            Console.WriteLine($"{index}. [ ] {_name} ({_description})");
+        }
+        //Console.WriteLine($"{index}. [ ] {_name} ({_description})");
+    }
+
+    public virtual Goal SetGoal(){
+        Console.WriteLine("What is the name of your goal?");
+        SetName(Console.ReadLine());
+        Console.WriteLine("What is a short description of it?");
+        SetDescription(Console.ReadLine());
+        Console.WriteLine("What is the amount of points associated with this goal?");
+        SetPoints(int.Parse(Console.ReadLine()));
+        return this;
     }
 }

@@ -38,14 +38,14 @@ public class Save{
 
         using StreamWriter writer = new StreamWriter(filePath);
         foreach (Goal goal in goals){
-            writer.Write(goal);
+            writer.Write($"{goal.GetType()}:{goal.GetName()},{goal.GetDescription()},{goal.GetTotalPoints()},{goal.GetComleted()}\n");
         }
     }
 
     private void savingToNewFile(List<Goal> goals){
         using StreamWriter writer = new StreamWriter(filePath, true);
         foreach (Goal goal in goals){
-            writer.Write(goal);
+            writer.Write($"{goal.GetType()}:{goal.GetName()},{goal.GetDescription()},{goal.GetTotalPoints()},{goal.GetComleted()}\n");
         }
     }
 }
