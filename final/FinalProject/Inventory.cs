@@ -7,17 +7,17 @@ public class Inventory{
         _inventory = new List<Food>();
     }
 
-    public void AddFood(Food food){
+    virtual public void AddFood(Food food){
         _inventory.Add(food);
     }
 
-    public void DisplayInventory(){
+    virtual public void DisplayInventory(){
         foreach(Food food in _inventory){
             food.Display();
         }
     }
 
-    public void RemoveFood(Food food){
+    virtual public void RemoveFood(Food food){
         _inventory.Remove(food);
     }
 

@@ -40,7 +40,6 @@ public class Menu
             case 3:
                 Console.WriteLine("What recipe would you like to display?");
                 cookBook.DisplayCertainRecipe(Console.ReadLine());
-                
                 return cookBook;
             case 4:
                 return cookBook;
