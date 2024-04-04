@@ -89,4 +89,22 @@ public class Menu
         }
         return inventory;
     }
+
+    public void LoadOptions(Inventory inventory, CookBook cookBook){
+        Console.WriteLine("What file would you like to load?");
+        Console.WriteLine("1. Inventory");
+        Console.WriteLine("2. CookBook");
+        _input = int.Parse(Console.ReadLine());
+        switch(_input){
+            case 1:
+                
+                return;
+            case 2:
+                
+                return;
+            default:
+                Console.WriteLine("Invalid input");
+                return;
+        }
+    }
 }
