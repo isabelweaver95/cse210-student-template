@@ -1,5 +1,8 @@
 public class Save
 {
+    // Save will update inventory/created a new inventory
+    // Save will update cookBook/created a new cookBook
+    // Save will update shoppingList/created a new shoppingList
     string filePath;
     public void SetFilePath(){
         string fileName;

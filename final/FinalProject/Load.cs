@@ -1,5 +1,7 @@
 public class Load
 {
+    //Load will allow the user to upload a cookBook
+    // Load will the user to upload an inventory.
     string filePath;
     string fileName;
 
