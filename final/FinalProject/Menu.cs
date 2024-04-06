@@ -20,19 +20,7 @@ public class Menu
                 Console.WriteLine("What are the ingredients?");
                 Console.WriteLine("Please enter the name of the ingredients, then the amount of that ingredient (ex. Egg 1, Milk 2)");
                 Console.WriteLine("When you are done, type 'done'");
-                List<Food> ingredients = new List<Food>();
-                while(true){ 
-                    string input = Console.ReadLine();
-                    if(input == "done"){
-                        break;
-                    }
-                    string[] splitInput = input.Split(" ");
-                    ingredients.Add(new Food(splitInput[0], int.Parse(splitInput[1])));
-                }
-                recipe._ingredients = ingredients;
-                Console.WriteLine("What are the instructions?");
-                recipe._instructions = Console.ReadLine();
-                cookBook.AddRecipe(recipe);
+                
                 return cookBook;
             case 2:
                 cookBook.displayAllRecipesName();
@@ -72,14 +60,24 @@ public class Menu
         switch(_input){
             case 1:
                 Console.WriteLine("What food would you like to add?");
-                inventory.AddFood(new Food(Console.ReadLine(), int.Parse(Console.ReadLine())));
+                string food = Console.ReadLine();
+                Console.WriteLine("What is the amount would you like to add?");
+                int amount = int.Parse(Console.ReadLine());
+                Console.WriteLine("What is the units?");
+                string units = Console.ReadLine();
+                inventory.AddFood(new Food(food, amount, units));
                 return inventory;
             case 2:
                 inventory.DisplayInventory();
                 return inventory;
             case 3:
-                Console.WriteLine("What food would you like to use?");
-                inventory.UseFood(new Food(Console.ReadLine(), int.Parse(Console.ReadLine())));
+                Console.WriteLine("What food would you like to add?");
+                food = Console.ReadLine();
+                Console.WriteLine("What is the amount would you like to add?");
+                amount = int.Parse(Console.ReadLine());
+                Console.WriteLine("What is the units?");
+                units = Console.ReadLine();
+                inventory.AddFood(new Food(food, amount, units));
                 return inventory;
             case 4:
                 return inventory;
@@ -87,7 +85,6 @@ public class Menu
                 Console.WriteLine("Invalid input");
                 return inventory;
         }
-        return inventory;
     }
 
     public void LoadOptions(Inventory inventory, CookBook cookBook){
