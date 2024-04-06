@@ -18,7 +18,7 @@ public class CookBook
     public void displayAllRecipesName(){
         int i = 1;
         foreach(Recipe recipe in _recipes){
-            Console.WriteLine("{0}. {1}", i, recipe._name);
+            Console.WriteLine($"{i}. {recipe._name}");
             i++;
         }
     }
@@ -27,8 +27,11 @@ public class CookBook
         foreach(Recipe recipe in _recipes){
             if(recipe._name == name){
                 recipe.Display();
+                return;
             }   
-        }   
+        } 
+        
+        Console.WriteLine("Recipe not found");
     }
 
 }

@@ -19,4 +19,8 @@ public class ShoppingList: Inventory
             food.Display();
         }
     }
+
+    public ShoppingList(){
+        _inventory = new List<Food>();
+    }
 }

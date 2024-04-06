@@ -7,27 +7,35 @@ public class Load
     string filePath;
     string fileName;
 
-    public void SetFilePath(){
-        Console.WriteLine("Would you like to open a file for a Cookbook or an Inventory?");
-        Console.WriteLine("1. Cookbook");
-        Console.WriteLine("2. Inventory");
-        int _input = int.Parse(Console.ReadLine());
+    public CookBook SetFilePathCookbook(){
+
         Console.WriteLine("What is the name of the file?");
                 fileName = Console.ReadLine();
                 filePath = @"C:\Users\izzyw\OneDrive\Documents\code\Class class\Templete\cse210-student-template\final\FinalProject\" + fileName + ".txt";
                 if(File.Exists(filePath)){
-                    if(_input == 1){
-                        LoadingCookBook();
-                    }else{
-                        LoadingInventory();
-                    }
-                    
-                }else{
 
+                    return LoadingCookBook();
+
+                }else{
+                    Console.WriteLine("File does not exist");
+                    return new CookBook();
                 }
     }
+    public Inventory SetFilePathInventory(){
 
-    private void LoadingCookBook(){
+        Console.WriteLine("What is the name of the file?");
+                fileName = Console.ReadLine();
+                filePath = @"C:\Users\izzyw\OneDrive\Documents\code\Class class\Templete\cse210-student-template\final\FinalProject\" + fileName + ".txt";
+                if(File.Exists(filePath)){
+
+                    return LoadingInventory();
+
+                }else{
+                    Console.WriteLine("File does not exist");
+                    return new Inventory();
+                }
+    }
+    private CookBook LoadingCookBook(){
         using StreamReader reader = new StreamReader(filePath);
         string fileContent = File.ReadAllText(filePath);
         string[] segments = fileContent.Split('#');
@@ -53,9 +61,10 @@ public class Load
 
             cookBook.AddRecipe(recipe);
         }
+        return cookBook;
     }
 
-    private void LoadingInventory(){
+    private Inventory LoadingInventory(){
         //This one we can load by line
         using StreamReader reader = new StreamReader(filePath);
         string file = reader.ReadToEnd();
@@ -69,6 +78,6 @@ public class Load
             food.units = parts[2];
             inventory.AddFood(food);
         }
-
+        return inventory;
     }
 }

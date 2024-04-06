@@ -8,7 +8,6 @@ public class Save
         Console.WriteLine("What would you like to save?");
         Console.WriteLine("1. Inventory");
         Console.WriteLine("2. CookBook");
-        Console.WriteLine("3. ShoppingList");
         int input = int.Parse(Console.ReadLine());
 
         string fileName;

@@ -8,6 +8,7 @@ public class Inventory{
     }
 
     virtual public void AddFood(Food food){
+        Console.WriteLine("Food name, Quantity, Units");
         _inventory.Add(food);
     }
 
@@ -37,15 +38,12 @@ public class Inventory{
         return true;
     }
 
-    public void UseFood(Food food){
-        if(!_inventory.Contains(food)){
-            Console.WriteLine("You don't have that food in your inventory");
-        }else{
-            foreach(Food f in _inventory){
-                if(f._name == food._name){
-                    f._quantity--;
-                }
+    public void UseFood(string food, int amount){
+        foreach(Food f in _inventory){
+            if(f._name == food){
+                f._quantity -= amount;
             }
         }
+
     }
 }
